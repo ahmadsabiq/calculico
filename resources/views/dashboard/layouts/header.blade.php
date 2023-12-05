@@ -3,19 +3,23 @@
   
     <ul class="navbar-nav ms-auto">
       @auth
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown pr-3">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           {{ auth()->user()->name }}
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-window-reverse"></i>
+          <li><a class="dropdown-item" href="/home">
              My Dashbord</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li>
+          {{-- <li><a class="dropdown-item" href="/profile">
+             profile</a></li> --}}
           <li><hr class="dropdown-divider"></li>
           <li>
             <form action="/logout" method="POST">
               @csrf
               
-              <button type="submit" class="dropdown-item">Logout <i class="bi bi-box-arrow-right"></i></button></form>
+              <button type="submit" class="dropdown-item">Logout</button></form>
           </li>
         </ul>
       </li>

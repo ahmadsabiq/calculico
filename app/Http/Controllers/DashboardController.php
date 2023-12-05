@@ -21,7 +21,7 @@ class DashboardController extends Controller
         return view('dashboard.module.materi.index');
     }
 
-    public function change_password(){
-        return view('dashboard.change_password.index');
+    public function change(){
+        return view('dashboard.change-password.index');
     }
 }

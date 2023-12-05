@@ -35,9 +35,9 @@ class HomeController extends Controller
         return view('home.homepage');
     }
 
-    public function user()
-    {
-        $users = User::all();
-        return view('admin.user',compact('users'));
-    }
+    // public function user()
+    // {
+    //     $users = User::all();
+    //     return view('admin.user',compact('users'));
+    // }
 }

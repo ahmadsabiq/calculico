@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,12 +28,14 @@ Route::get("/", [HomeController::class, "homepage"])->name("homepage");
 
 Route::get('home',[HomeController::class,'index'])->middleware(['auth'])->name('home');
 
-Route::get('user',[HomeController::class,'user'])->middleware(['auth','admin'])->name('user');
+// Route::get('user',[HomeController::class,'user'])->middleware(['auth','admin'])->name('user');
+
+Route::resource('dashboard/user', AdminUserController::class)->middleware('admin');
 
 Route::get('dashboard/latihan',[DashboardController::class,'module'] )->middleware('auth');
 Route::get('dashboard/laporan',[DashboardController::class,'report'] )->middleware('auth');
 Route::get('/webgl',[DashboardController::class,'materi'] )->middleware('auth');
-Route::get('/ganti-password',[DashboardController::class,'change_password'] )->middleware('auth');
+Route::get('/dashboard/ganti-password',[DashboardController::class,'change'] )->middleware('auth');
 
 
 
