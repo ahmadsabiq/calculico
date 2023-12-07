@@ -3,7 +3,7 @@
   
     <ul class="navbar-nav ms-auto">
       @auth
-      <li class="nav-item dropdown pr-3">
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           {{ auth()->user()->name }}
         </a>

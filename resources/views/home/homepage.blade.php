@@ -10,7 +10,7 @@
             <img src="/img/Anak Bermain.png" class="d-block mx-lg-auto img-fluid" width="700" height="500" loading="lazy">
           </div>
           <div class="col-lg-6">
-            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Selamat Datang di Calculico</h1>
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Selamat Datang di <i>Calculico</i></h1>
             <p class="lead">Aplikasi belajar-mengajar untuk anak usia pra-sekolah dengan risiko Diskalkulia</p>
           </div>
         </div>
@@ -44,7 +44,7 @@
 
 {{-- About --}}
 <div class="px-4 pt-5 my-5 text-center border-top">
-    <h1 class="display-4 fw-bold text-body-emphasis">APA ITU CALCULICO?</h1>
+    <h1 class="display-4 fw-bold text-body-emphasis">APA ITU <i>CALCULICO</i>?</h1>
     <div class="col-lg-9 mx-auto">
       <p class="mb-4 fs-22px">Calculico adalah alat bantu belajar-mengajar numerasi berbasis web untuk anak usia pra-sekolah dengan risiko diskalkulia. Di dalam website ini akan disuguhkan materi-materi numerasi dari dasar seperti pengenalan angka hingga anak tidak merasa kesulitan saat dihadapkan dengan angka dan matematika. Kami berharap web ini memudahkan para pendamping/orangtua dan melengkapi aplikasi yang sudah ada.</p>
     </div>

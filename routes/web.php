@@ -28,9 +28,15 @@ Route::get("/", [HomeController::class, "homepage"])->name("homepage");
 
 Route::get('home',[HomeController::class,'index'])->middleware(['auth'])->name('home');
 
+
 // Route::get('user',[HomeController::class,'user'])->middleware(['auth','admin'])->name('user');
 
 Route::resource('dashboard/user', AdminUserController::class)->middleware('admin');
+Route::post('/deleteuser/{id}', [AdminUserController::class, 'destroy'])->name('deleteuser')->middleware('admin');
+// Route::post('/updateuser/{id}', [AdminUserController::class, 'update'])->name('updateuser')->middleware('admin');
+Route::get('/updateuser/{id}', [AdminUserController::class, 'edit']);
+Route::patch('/updateuser', [AdminUserController::class, 'update'])->name('updateuser')->middleware('admin');
+
 
 Route::get('dashboard/latihan',[DashboardController::class,'module'] )->middleware('auth');
 Route::get('dashboard/laporan',[DashboardController::class,'report'] )->middleware('auth');
