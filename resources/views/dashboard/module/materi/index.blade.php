@@ -4,18 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | Tutorial Unity</title>
-    <link rel="shortcut icon" href="Unitydb/TemplateData/favicon.ico">
-    <link rel="stylesheet" href="Unitydb/TemplateData/style.css">
-
-     {{-- Bootstrap CSS --}}
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
-     {{-- Bootstrap Icons --}}
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
- 
-     {{-- Custom CSS --}}
-     <link rel="stylesheet" href="/css/style.css">
-     
+    <link rel="shortcut icon" href="Lampu/TemplateData/favicon.ico">
+    <link rel="stylesheet" href="Lampu/TemplateData/style.css">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -28,7 +18,8 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-        <a href="/dashboard/latihan" class="btn btn-success">Kembali ke latihan</a>
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">Tutorial Unity</div>
       </div>
     </div>
@@ -65,15 +56,15 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "Unitydb/Build";
-      var loaderUrl = buildUrl + "/Build2.loader.js";
+      var buildUrl = "Lampu/Build";
+      var loaderUrl = buildUrl + "/Lampu.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Build2.data",
-        frameworkUrl: buildUrl + "/Build2.framework.js",
-        codeUrl: buildUrl + "/Build2.wasm",
+        dataUrl: buildUrl + "/Lampu.data.unityweb",
+        frameworkUrl: buildUrl + "/Lampu.framework.js.unityweb",
+        codeUrl: buildUrl + "/Lampu.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "Tutorial Unity",
+        productName: "Discalculia Game",
         productVersion: "1.0",
         showBanner: unityShowBanner,
       };
@@ -129,4 +120,3 @@
     </script>
   </body>
 </html>
-

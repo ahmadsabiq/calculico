@@ -12,7 +12,7 @@
       <div class="card-body">
         <h5 class="card-title">Ayo kita nyalakan lampunya ya!</h5>
         <p class="card-text">ikuti ukuran lampu yang menyala </p>
-        <a href="/webgl" class="btn btn-primary">Latihan Sekarang</a>
+        <a href="/lampu" class="btn btn-primary">Latihan Sekarang</a>
       </div>
     </div>
   </div>
@@ -32,7 +32,7 @@
       <div class="card-body">
         <h5 class="card-title">Bantu Ibu Belanja Buah yuk!</h5>
         <p class="card-text">ikuti ukuran lampu yang menyala </p>
-        <a href="/webgl" class="btn btn-primary">Latihan Sekarang</a>
+        <a href="/belanja" class="btn btn-primary">Latihan Sekarang</a>
       </div>
     </div>
   </div>

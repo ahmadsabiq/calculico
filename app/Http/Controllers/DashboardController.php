@@ -21,6 +21,10 @@ class DashboardController extends Controller
         return view('dashboard.module.materi.index');
     }
 
+    public function lampu(){
+        return view('dashboard.module.lampu.index');
+    }
+
     public function change(){
         return view('dashboard.change-password.index');
     }

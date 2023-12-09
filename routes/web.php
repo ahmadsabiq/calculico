@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\ModuleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,11 +40,17 @@ Route::patch('/updateuser', [AdminUserController::class, 'update'])->name('updat
 
 
 Route::get('dashboard/latihan',[DashboardController::class,'module'] )->middleware('auth');
-Route::get('dashboard/laporan',[DashboardController::class,'report'] )->middleware('auth');
+Route::get('/lampu',[ModuleController::class,'lampu'] )->middleware('auth');
+Route::get('/belanja',[ModuleController::class,'belanja'] )->middleware('auth');
+
+
+Route::get('dashboard/laporan',[ModuleController::class,'index'] )->middleware('auth');
+
 Route::get('/webgl',[DashboardController::class,'materi'] )->middleware('auth');
+
 Route::get('/dashboard/ganti-password',[DashboardController::class,'change'] )->middleware('auth');
 
-
+Route::post('/unity-data', [ModuleController::class, 'postData'])->middleware('auth');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

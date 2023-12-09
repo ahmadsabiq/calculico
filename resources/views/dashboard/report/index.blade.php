@@ -10,16 +10,24 @@
       <thead>
         <tr>
           <th scope="col">No</th>
-          <th scope="col">Nama Lengkap</th>
-          <th scope="col">Skor</th>
+          <th scope="col">Nama</th>
+          <th scope="col">Modul</th>
+          <th scope="col">Level</th>
+          <th scope="col">Soal</th>
+          <th scope="col">Percobaan Mengulang</th>
+          <th scope="col">Tanggal</th>
         </tr>
       </thead>
       <tbody>
-        @foreach ($player as $user)
+        @foreach ($users as $user)
         <tr>
           <td>{{ $loop->iteration }}</td>
-          <td>{{ $user->nama }}</td>
-          <td>{{ $user->skor }}</td>
+          <td>{{ $user->name }}</td>
+          <td>{{ $user->tittle }}</td>
+          <td>{{ $user->level }}</td>
+          <td>{{ $user->question }}</td>
+          <td>{{ $user->attempt }}x</td>
+          <td>{{ $user->created_at }}</td>
         </tr>
         @endforeach
       </tbody>
