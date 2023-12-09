@@ -22,7 +22,7 @@
       <div class="card-body">
         <h5 class="card-title">Ayo kita pakai sepatunya ya!</h5>
         <p class="card-text">ikuti ukuran lampu yang menyala </p>
-        <a href="/webgl" class="btn btn-primary">Latihan Sekarang</a>
+        <a href="/sepatu" class="btn btn-primary">Latihan Sekarang</a>
       </div>
     </div>
   </div>

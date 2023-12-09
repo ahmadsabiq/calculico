@@ -41,12 +41,11 @@ Route::patch('/updateuser', [AdminUserController::class, 'update'])->name('updat
 
 Route::get('dashboard/latihan',[DashboardController::class,'module'] )->middleware('auth');
 Route::get('/lampu',[ModuleController::class,'lampu'] )->middleware('auth');
+Route::get('/sepatu',[ModuleController::class,'sepatu'] )->middleware('auth');
 Route::get('/belanja',[ModuleController::class,'belanja'] )->middleware('auth');
 
 
 Route::get('dashboard/laporan',[ModuleController::class,'index'] )->middleware('auth');
-
-Route::get('/webgl',[DashboardController::class,'materi'] )->middleware('auth');
 
 Route::get('/dashboard/ganti-password',[DashboardController::class,'change'] )->middleware('auth');
 

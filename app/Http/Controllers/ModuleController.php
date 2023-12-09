@@ -56,6 +56,11 @@ class ModuleController extends Controller
      {
         return view("dashboard.module.belanja.index");
      }
+
+     public function sepatu()
+     {
+        return view("dashboard.module.sepatu.index");
+     }
     /**
      * Show the form for creating a new resource.
      */

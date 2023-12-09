@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Tutorial Unity</title>
+    <title>Unity WebGL Player | Discalculia Game</title>
     <link rel="shortcut icon" href="Lampu/TemplateData/favicon.ico">
     <link rel="stylesheet" href="Lampu/TemplateData/style.css">
   </head>
@@ -20,7 +20,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Tutorial Unity</div>
+        <div id="unity-build-title">Discalculia Game</div>
       </div>
     </div>
     <script>
