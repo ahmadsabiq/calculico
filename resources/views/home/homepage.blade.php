@@ -2,6 +2,13 @@
 
 @section('container')
 
+@if(session('newregister'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('newregister') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        @endif
+
 {{-- Top Heroes --}}
     <div class="container col-xxl-8 px-4 py-5">
         {{-- Top Heroes --}}

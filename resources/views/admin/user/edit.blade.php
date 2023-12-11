@@ -5,17 +5,17 @@
   <h1 class="h2">Edit User</h1>
 </div>
 
-<a href="/dashboard/user/" class="btn btn-success">Kembali ke Halaman Users</a>
+<a href="/dashboard/user/" class="btn btn-success mb-3"><i class="bi bi-chevron-left"></i>Kembali ke Halaman Users</a>
 
 @foreach ($users as $user)
     
-<form method="post" action="{{ route('profile.update', ['userId' => $user->id]) }}">
+<form method="post" action="{{ route('updateuser', $user->id) }}">
   @csrf
-  @method('patch')
+  @method('PUT')
 
   <div class="form-group">
-      <label for="input">Nama lengkap</label>
-      <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name" required value="{{ old('name', $user->name) }}">
+      <label for="input" class="mb-2">Nama lengkap</label>
+      <input type="text" name="name" class="form-control mb-3 @error('name') is-invalid @enderror" id="name" placeholder="Name" required value="{{ old('name', $user->name) }}">
       @error('name')
           <div class="invalid-feedback">
               {{ $message }}
@@ -24,7 +24,7 @@
     </div>
 
 <div class="form-group">
-      <label for="Input">Role</label>
+      <label for="Input" class="mb-2">Role</label>
       <select name="usertype" class="form-select @error('usertype') is-invalid
       @enderror" required value="{{ old('usertype', $user->usertype) }}">
           <option selected>{{ $user->usertype }}</option>

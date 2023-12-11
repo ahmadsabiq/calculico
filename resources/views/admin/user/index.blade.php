@@ -40,11 +40,11 @@
             </span>
         </td>
           <td>
-            <a href="/dashboard/user/{{ $user->id }}" class="btn btn-info"><i class="bi bi-eye"></i></a>
+            <a href="/dashboard/user/{{ $user->id }}" class="btn btn-info">Lihat</a>
             <a href="/updateuser/{{ $user->id }}" class="btn btn-warning">Edit</a>
             <form action='/deleteuser/{{ $user->id }}' class="d-inline" method="POST">
             @csrf
-            <button class="btn btn-danger border-0" onclick="return confirm('Apakah anda yakin ingin menghapus {{ $user->name }}?')"><i class="bi bi-trash"></i></button>
+            <button class="btn btn-danger border-0" onclick="return confirm('Apakah anda yakin ingin menghapus {{ $user->name }}?')">Hapus</button>
             </form>
             
           </td>

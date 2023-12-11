@@ -41,7 +41,7 @@ Route::resource('dashboard/user', AdminUserController::class)->middleware('admin
 Route::post('/deleteuser/{id}', [AdminUserController::class, 'destroy'])->name('deleteuser')->middleware('admin');
 // Route::post('/updateuser/{id}', [AdminUserController::class, 'update'])->name('updateuser')->middleware('admin');
 Route::get('/updateuser/{id}', [AdminUserController::class, 'edit']);
-Route::post('/updateuser/{userId}', [AdminUserController::class, 'update'])->name('updateuser')->middleware('admin');
+Route::put('/updateuser/{userId}', [AdminUserController::class, 'update'])->name('updateuser')->middleware('admin');
 
 Route::get('/pendinguser', [AdminUserController::class, 'pending'])->name('pendinguser')->middleware('admin');
 Route::patch('/approve-pending', [AdminUserController::class, 'updateAllPending'])->name('pendinguser')->middleware('admin');

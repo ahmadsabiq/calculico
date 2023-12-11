@@ -18,10 +18,10 @@
 
     </fieldset>
   </form>
-  <a href="/dashboard/user" class="btn btn-success"> <span><i class="bi bi-chevron-left"></i></span> Bact to All User</a>
+  <a href="/dashboard/user" class="btn btn-success"> <span><i class="bi bi-chevron-left"></i></span> Kembali ke Halaman User</a>
   <a href="/updateuser/{{ $user->id }}" class="btn btn-warning"> Edit</a>
   <form action='/deleteuser/{{ $user->id }}' class="d-inline" method="POST">
     @csrf
-    <button class="btn btn-danger border-0" onclick="return confirm('Apakah anda yakin ingin menghapus {{ $user->name }}?')"><i class="bi bi-trash"></i> Delete</button>
+    <button class="btn btn-danger border-0" onclick="return confirm('Apakah anda yakin ingin menghapus {{ $user->name }}?')"><i class="bi bi-trash"></i> Hapus</button>
     </form>
 @endsection

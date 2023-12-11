@@ -13,12 +13,6 @@
               Dashboard
             </a>
           </li>
-          {{-- <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('dashboard/biodata') ? 'active' : '' }}" href="/dashboard/biodata">
-              <svg class="bi"><use xlink:href="#file-earmark"/></svg>
-              Biodata
-            </a>
-          </li> --}}
           <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('dashboard/latihan') ? 'active' : '' }}" href="/dashboard/latihan">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-dice-3-fill" viewBox="0 0 16 16">
@@ -38,7 +32,7 @@
         </ul>
 
         {{-- Administrator --}}
-        
+        @can('admin')
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"><span>Administrator</span></h6>
         <ul class="nav flex-column">
           <li class="nav-item">
@@ -58,6 +52,7 @@
             </a>
           </li>
         </ul>
+        @endcan
         
 
         {{-- User --}} 
@@ -77,9 +72,8 @@
               <form class="nav-link d-flex align-items-center gap-2" action="/logout" method="POST">
                   @csrf
                   
-                  <button type="submit" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-door-closed-fill" viewBox="0 0 16 16">
-                    <path d="M12 1a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2a1 1 0 0 1 1-1zm-2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
-                  </svg>Logout</button></form>
+                  <button type="submit" class="btn btn-danger"><i class="bi bi-arrow-bar-left"></i>
+                    Logout</button></form>
           </li>
         </ul>
       </div>
