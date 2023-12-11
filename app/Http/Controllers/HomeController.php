@@ -11,23 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        if(Auth::id())
-        {
-            $usertype = Auth::user()->usertype;
-
-            if($usertype == 'admin')
-            {
-                return view('admin.dashboard');
-            }
-            else if($usertype == 'user')
-            {
-                return view('dashboard.index');
-            }
-            else
-            {
-                return view('home');
-            }
-        }
+        //
     }
 
     public function homepage()

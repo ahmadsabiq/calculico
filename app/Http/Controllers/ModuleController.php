@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ModuleResource;
 use App\Models\module;
 use Illuminate\Http\Request;
 
@@ -42,8 +43,10 @@ class ModuleController extends Controller
 
      public function index()
      {
-         $users = module::all();
-         return view("dashboard.report.index", compact("users"));
+
+         $modul = module::all();
+        //  return ModuleResource::collection($modul);
+         return view("dashboard.report.index", compact("modul"));
      }
 
 

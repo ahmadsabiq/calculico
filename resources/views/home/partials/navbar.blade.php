@@ -12,7 +12,7 @@
                   Welcome back, {{ auth()->user()->name }}
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{{ url('/home') }} ">
+                  <li><a class="dropdown-item" href="{{ url('/dashboard') }} ">
                      My Dashbord</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li>

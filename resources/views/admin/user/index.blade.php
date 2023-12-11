@@ -12,16 +12,15 @@
     
 @endif
 
-<div class="table-responsive small">
+<div class="bordered table-striped" style="border-radius: 5px;">
   <a href="/dashboard/user/create" class="btn btn-primary mb-3">Tambah User</a>
-    <table class="table table-striped table-sm">
+    <table class="table table-striped table-bordered table-sm text-center">
       <thead>
         <tr>
           <th scope="col">No</th>
           <th scope="col">Nama Lengkap</th>
           <th scope="col">Email</th>
           <th scope="col">Status</th>
-          {{-- <th scope="col">Tanggal Lahir</th> --}}
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -31,9 +30,15 @@
           <td>{{ $loop->iteration }}</td>
           <td>{{ $user->name }}</td>
           <td>{{ $user->email }}</td>
-          <td>{{ $user->usertype }}</td>
-          {{-- <td>{{ $user->dob }}</td> --}}
-          
+          <td>
+            <span style="background-color: 
+                @if($user->usertype == 'admin') red 
+                @elseif($user->usertype == 'pending') yellow 
+                @elseif($user->usertype == 'user') green 
+                @endif; border-radius: 5px; padding: 2px 5px;">
+                {{ $user->usertype }}
+            </span>
+        </td>
           <td>
             <a href="/dashboard/user/{{ $user->id }}" class="btn btn-info"><i class="bi bi-eye"></i></a>
             <a href="/updateuser/{{ $user->id }}" class="btn btn-warning">Edit</a>

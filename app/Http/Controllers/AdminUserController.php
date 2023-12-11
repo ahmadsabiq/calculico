@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\user;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Validator;
-use App\Http\Requests\ProfileUpdateRequest;
+use Illuminate\Validation\Rules\Unique;
+
 
 
 
@@ -22,6 +25,7 @@ class AdminUserController extends Controller
     {
         $users = user::all();
         return view("admin.user.index", compact("users"));
+
     }
 
     /**
@@ -67,22 +71,24 @@ class AdminUserController extends Controller
      */
     public function edit($id)
     {
-        $data = User::where('id', $id)->get();
-        return view('admin.user.edit', ['users' => $data]);
+        $user = User::where('id', $id)->get();
+        return view('admin.user.edit', ['users' => $user]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(ProfileUpdateRequest $request)
+    public function update(Request $request, $userId)
     {
-        $request->user()->fill($request->validated());
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'usertype' => 'required',
+        ]);
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
-        $request->user()->save();
+        DB::table('users')->where('id', $userId)->update([
+            'name' => $request->name,
+            'usertype' => $request->usertype,
+        ]);
 
         return redirect('/dashboard/user')->with('success','User Berhasil Di Update');
 
@@ -97,5 +103,41 @@ class AdminUserController extends Controller
 
         return redirect("/dashboard/user")->with("success","User Berhasil Dihapus");
 
+    }
+
+    /**
+     * Display a listing of the pending resource.
+     */
+    public function pending()
+    {
+        $pendingusers = User::where('usertype', 'pending')->get();
+
+        return view('admin.user.pending', compact('pendingusers'));
+        
+    }
+    
+    public function updateAllPending()
+    {
+        $name = 'user';
+
+        DB::table('users')
+            ->where('usertype', '=', 'pending')
+            ->update([
+                'usertype' => $name
+            ]);
+            
+            return redirect('/pendinguser')->with('success', 'All User role approved successfully.');
+    }
+
+    public function updatePending($userId)
+    {
+        $name = 'user';
+
+        DB::table('users')
+            ->where('id', $userId)
+            ->where('usertype', '=', 'pending')
+            ->update(['usertype' => $name]);
+
+        return redirect('/pendinguser')->with('success', 'User role approved successfully.');
     }
 }

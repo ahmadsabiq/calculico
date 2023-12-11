@@ -1,5 +1,6 @@
 <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
-    <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+  
+    <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel" style=" height: 100vh;">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="sidebarMenuLabel">Company name</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
@@ -7,7 +8,7 @@
       <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('dashboard') ? 'active' : '' }}" aria-current="page" href="/home">
+            <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('dashboard') ? 'active' : '' }}" aria-current="page" href="/dashboard">
               <svg class="bi"><use xlink:href="#house-fill"/></svg>
               Dashboard
             </a>
@@ -48,7 +49,16 @@
               User
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('dashboard/user*') ? 'active' : '' }}" href="/pendinguser">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-people-fill" viewBox="0 0 16 16">
+              <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+            </svg>
+              Approve User
+            </a>
+          </li>
         </ul>
+        
 
         {{-- User --}} 
 

@@ -7,6 +7,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\ModuleController;
+
+use App\Policies\AdminPolicy;
+use App\Policies\UserPolicy;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +30,8 @@ Route::get("/", [HomeController::class, "homepage"])->name("homepage");
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('dashboard',[DashboardController::class,'index'])->middleware(['auth'])->name('dashboard');
+
 Route::get('home',[HomeController::class,'index'])->middleware(['auth'])->name('home');
 
 
@@ -36,8 +41,11 @@ Route::resource('dashboard/user', AdminUserController::class)->middleware('admin
 Route::post('/deleteuser/{id}', [AdminUserController::class, 'destroy'])->name('deleteuser')->middleware('admin');
 // Route::post('/updateuser/{id}', [AdminUserController::class, 'update'])->name('updateuser')->middleware('admin');
 Route::get('/updateuser/{id}', [AdminUserController::class, 'edit']);
-Route::patch('/updateuser', [AdminUserController::class, 'update'])->name('updateuser')->middleware('admin');
+Route::post('/updateuser/{userId}', [AdminUserController::class, 'update'])->name('updateuser')->middleware('admin');
 
+Route::get('/pendinguser', [AdminUserController::class, 'pending'])->name('pendinguser')->middleware('admin');
+Route::patch('/approve-pending', [AdminUserController::class, 'updateAllPending'])->name('pendinguser')->middleware('admin');
+Route::post('/dashboard/user/update-pending/{userId}', [AdminUserController::class, 'updatePending'])->name('update-pending')->middleware('admin');
 
 Route::get('dashboard/latihan',[DashboardController::class,'module'] )->middleware('auth');
 Route::get('/lampu',[ModuleController::class,'lampu'] )->middleware('auth');

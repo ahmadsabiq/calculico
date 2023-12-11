@@ -77,8 +77,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         @endif
-
-        
+      
         <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/login" method="POST">
             @csrf
 
