@@ -4,22 +4,20 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   <h1 class="h2">Selamat Datang, {{ auth()->user()->name }}</h1>
 </div>
+
+<div>
+    <button class="btn btn-primary m">
+        <a href="/dashboard/latihan" class="btn btn-primary">Latihan</a>
+    </button>
+    <button class="btn btn-primary">
+        <a href="/dashboard/laporan" class="btn btn-primary">Laporan</a>
+    </button>
+    <button class="btn btn-primary">
+        <a href="/dashboard/user" class="btn btn-primary">Kelola Akun Pengguna</a>
+    </button>
+    <button class="btn btn-primary">
+        <a href="/pendinguser" class="btn btn-primary">Aktivasi Akun Pengguna</a>
+    </button>
+</div>
+
 @endsection
-
-{{-- <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Admin Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in as Admin!") }}
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout> --}}

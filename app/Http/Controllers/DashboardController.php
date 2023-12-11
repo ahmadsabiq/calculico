@@ -34,19 +34,6 @@ class DashboardController extends Controller
         return view('dashboard.module.index');
     }
 
-    public function report(){
-        $player = Report::all();
-        return view('dashboard.report.index',compact('player'));
-    }
-
-    public function materi(){
-        return view('dashboard.module.materi.index');
-    }
-
-    public function lampu(){
-        return view('dashboard.module.lampu.index');
-    }
-
     public function change(){
         return view('dashboard.change-password.index');
     }

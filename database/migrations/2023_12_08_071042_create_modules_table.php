@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('level');
             $table->string('question');
             $table->integer('attempt');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

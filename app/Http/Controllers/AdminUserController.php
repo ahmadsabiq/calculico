@@ -126,7 +126,7 @@ class AdminUserController extends Controller
                 'usertype' => $name
             ]);
             
-            return redirect('/pendinguser')->with('success', 'All User role approved successfully.');
+            return redirect('/pendinguser')->with('success', 'Semua Akun berhasil di aktifkan.');
     }
 
     public function updatePending($userId)
@@ -138,6 +138,6 @@ class AdminUserController extends Controller
             ->where('usertype', '=', 'pending')
             ->update(['usertype' => $name]);
 
-        return redirect('/pendinguser')->with('success', 'User role approved successfully.');
+        return redirect('/pendinguser')->with('success', 'Akun berhasil di aktifkan.');
     }
 }

@@ -5,8 +5,23 @@
   <h1 class="h2">Laporan</h1>
 </div>
 
-<div class="table-responsive small">
-    <table class="table table-striped table-sm">
+@can('admin')
+    <div>
+    @if (session()->has('success'))
+    <div class="alert alert-success col-lg-8" role="alert">
+        {{ session('success') }}
+    </div>
+    @endif
+
+    <form action="{{ route('deletereport') }}" class="mb-3" method="POST">
+      @csrf
+      <button class="btn btn-danger border-0" onclick="return confirm('Apakah anda yakin ingin menghapus Laporan?')">Hapus Semua Laporan</button>
+      </form>
+    </div>
+@endcan
+
+<div class="table-responsive table-bordered small">
+    <table class="table table-striped table-bordered table-sm text-center">
       <thead>
         <tr>
           <th scope="col">No</th>
@@ -32,5 +47,8 @@
         @endforeach
       </tbody>
     </table>
-  </div>
+
+    {{-- Display pagination links --}}
+    {{ $modul->links('pagination::bootstrap-4') }}
+</div>
 @endsection

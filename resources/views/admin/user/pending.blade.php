@@ -2,7 +2,7 @@
 
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <h1 class="h2">Approve User</h1>
+  <h1 class="h2">Aktivasi Akun User</h1>
 </div>
 
 @if (session()->has('success'))
@@ -12,35 +12,14 @@
     
 @endif
 
-{{-- <div>
-    @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
-        <form action="/approve-pending" method="post">
-            @csrf
-            @method('patch')
-            <button type="submit">Approve ALL Role</button>
-        </form>
-  
-
-    @foreach($pendingusers as $user)
-    <p>{{ $user->name }} - {{ $user->email }}</p>
-    <form action="{{ route('update-pending', ['userId' => $user->id]) }}" method="post">
-        @csrf
-        <button type="submit">Approve Role</button>
-    </form>
-@endforeach
-</div> --}}
-
-<div class="table-responsive small">
+<div class="table-responsive table-bordered">
     <form action="/approve-pending" method="post">
         @csrf
         @method('patch')
-        <button type="submit" class="btn btn-primary mb-3">Approve ALL Role</button>
+        <button type="submit" class="btn btn-primary mb-3">Aktifkan Semua Akun</button>
     </form>
-      <table class="table table-striped table-sm">
+
+      <table class="table table-bordered table-striped text-center">
         <thead>
           <tr>
             <th scope="col">No</th>
@@ -63,7 +42,7 @@
             <td>
               <form action="{{ route('update-pending', ['userId' => $user->id]) }}" method="post">
                 @csrf
-                <button type="submit" class="btn btn-success">Setuju</button>
+                <button type="submit" class="btn btn-success">Aktifkan</button>
             </form>
             </td>
           </tr>

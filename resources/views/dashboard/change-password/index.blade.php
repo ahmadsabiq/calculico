@@ -18,24 +18,24 @@
     
             <div class="mb-3">
                 <x-input-label for="update_password_current_password" :value="__('Password Lama')" />
-                <x-text-input id="update_password_current_password" name="current_password" type="password" class="form-control" autocomplete="current-password" />
+                <x-text-input id="update_password_current_password" name="current_password" type="password" class="form-control shadow" autocomplete="current-password" />
                 <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2 text-danger" />
             </div>
     
             <div class="mb-3">
                 <x-input-label for="update_password_password" :value="__('Password Baru')" />
-                <x-text-input id="update_password_password" name="password" type="password" class="form-control" autocomplete="new-password" />
+                <x-text-input id="update_password_password" name="password" type="password" class="form-control shadow" autocomplete="new-password" />
                 <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2 text-danger" />
             </div>
     
             <div class="mb-3">
                 <x-input-label for="update_password_password_confirmation" :value="__('Konfirmasi Password')" />
-                <x-text-input id="update_password_password_confirmation" name="password_confirmation" type="password" class="form-control" autocomplete="new-password" />
+                <x-text-input id="update_password_password_confirmation" name="password_confirmation" type="password" class="form-control shadow" autocomplete="new-password" />
                 <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2 text-danger" />
             </div>
     
             <div class="mb-3">
-                <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                <button type="submit" class="btn btn-primary w-100 py-2 mt-4">{{ __('Simpan') }}</button>
             </div>
     
             @if (session('status') === 'password-updated')
@@ -44,8 +44,8 @@
                     x-show="show"
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-dark"
-                >{{ __('Saved.') }}</p>
+                    class="text-sm text-green-500"
+                >{{ __('Tersimpan') }}</p>
             @endif
         </form>
 @endsection

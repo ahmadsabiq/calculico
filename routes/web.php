@@ -39,7 +39,7 @@ Route::get('home',[HomeController::class,'index'])->middleware(['auth'])->name('
 
 Route::resource('dashboard/user', AdminUserController::class)->middleware('admin');
 Route::post('/deleteuser/{id}', [AdminUserController::class, 'destroy'])->name('deleteuser')->middleware('admin');
-// Route::post('/updateuser/{id}', [AdminUserController::class, 'update'])->name('updateuser')->middleware('admin');
+
 Route::get('/updateuser/{id}', [AdminUserController::class, 'edit']);
 Route::put('/updateuser/{userId}', [AdminUserController::class, 'update'])->name('updateuser')->middleware('admin');
 
@@ -54,6 +54,7 @@ Route::get('/belanja',[ModuleController::class,'belanja'] )->middleware('auth');
 
 
 Route::get('dashboard/laporan',[ModuleController::class,'index'] )->middleware('auth');
+Route::post('deletereport', [ModuleController::class, 'destroy'])->name('deletereport')->middleware('auth');
 
 Route::get('/dashboard/ganti-password',[DashboardController::class,'change'] )->middleware('auth');
 

@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg bg-secondary ">
     <div class="container">
-      <a class="navbar-brand" href="/">Calculico</a>
+      <a class="navbar-brand text-light" href="/">Calculico</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span
                 class="navbar-toggler-icon"></span></button>
@@ -25,11 +25,11 @@
               </li>
                 @else
               <li class="nav-item">
-                <a class="nav-link " href="{{ route('login') }} ">Login
+                <a class="nav-link text-light" href="{{ route('login') }} ">Login
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{ route('register') }} ">Register
+                <a class="nav-link text-light" href="{{ route('register') }} ">Register
                 </a>
               </li>
               @endauth

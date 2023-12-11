@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ModuleResource;
 use App\Models\module;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Resources\ModuleResource;
 
 class ModuleController extends Controller
 {
@@ -15,13 +16,13 @@ class ModuleController extends Controller
      public function postData(Request $request)
      {
          // Ensure the request is from an authenticated user
-         $user = auth()->user();
+        //  $user = auth()->user();
  
          // Process the Unity data
          $data = $request->json()->all();
 
             $module = module::create([
-                'user_id' => $user->id,
+                // 'user_id' => $user->id,
                 'name' => $data['name'],
                 'tittle' => $data['tittle'],
                 'level' => $data['level'],
@@ -31,24 +32,15 @@ class ModuleController extends Controller
             
             $module->save();
  
-        //  // Update the user data
-        //  $user->update([
-        //      'score' => $data['score'],
-        //      // Add other fields as needed
-        //  ]);
- 
          return response()->json(['message' => 'Data received and processed successfully']);
      }
 
 
      public function index()
      {
-
-         $modul = module::all();
-        //  return ModuleResource::collection($modul);
+         $modul = module::paginate(10);
          return view("dashboard.report.index", compact("modul"));
      }
-
 
      public function lampu()
      {
@@ -107,8 +99,9 @@ class ModuleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(module $module)
+    public function destroy()
     {
-        //
+        DB::table('modules')->delete();
+        return redirect('/dashboard/laporan')->with('success', 'Laporan berhasil dihapus');
     }
 }
