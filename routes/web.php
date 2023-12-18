@@ -47,14 +47,18 @@ Route::get('/pendinguser', [AdminUserController::class, 'pending'])->name('pendi
 Route::patch('/approve-pending', [AdminUserController::class, 'updateAllPending'])->name('pendinguser')->middleware('admin');
 Route::post('/dashboard/user/update-pending/{userId}', [AdminUserController::class, 'updatePending'])->name('update-pending')->middleware('admin');
 
-Route::get('dashboard/latihan',[DashboardController::class,'module'] )->middleware('auth');
-Route::get('/lampu',[ModuleController::class,'lampu'] )->middleware('auth');
-Route::get('/sepatu',[ModuleController::class,'sepatu'] )->middleware('auth');
-Route::get('/belanja',[ModuleController::class,'belanja'] )->middleware('auth');
+Route::get('dashboard/modul',[DashboardController::class,'module'] )->middleware('auth');
+Route::get('/dashboard/modul/sequence',[DashboardController::class,'lampuDetail'] )->middleware('auth');
+Route::get('/dashboard/modul/comparation',[DashboardController::class,'sepatuDetail'] )->middleware('auth');
+Route::get('/dashboard/modul/sense-of-number',[DashboardController::class,'belanjaDetail'] )->middleware('auth');
+
+Route::get('/lampu',[ModuleController::class,'lampu'] )->name('lampu')->middleware('auth');
+Route::get('/sepatu',[ModuleController::class,'sepatu'] )->name('sepatu')->middleware('auth');
+Route::get('/belanja',[ModuleController::class,'belanja'] )->name('belanja')->middleware('auth');
 
 
 Route::get('dashboard/laporan',[ModuleController::class,'index'] )->middleware('auth');
-Route::post('deletereport', [ModuleController::class, 'destroy'])->name('deletereport')->middleware('auth');
+Route::post('deletereport', [ModuleController::class, 'destroy'])->name('deletereport')->middleware('admin');
 
 Route::get('/dashboard/ganti-password',[DashboardController::class,'change'] )->middleware('auth');
 

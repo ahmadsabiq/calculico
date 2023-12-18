@@ -16,10 +16,10 @@
                       Dashboard
                   </a>
               </li>
-              <li class="nav-item {{ Request::is('dashboard/latihan') ? 'active' : '' }}">
-                  <a class="nav-link d-flex align-items-center gap-2" href="/dashboard/latihan">
+              <li class="nav-item {{ Request::is('dashboard/modul') ? 'active' : '' }}">
+                  <a class="nav-link d-flex align-items-center gap-2" href="/dashboard/modul">
                       <i class="bi bi-dice-3-fill"></i>
-                      Latihan
+                      Modul
                   </a>
               </li>
               <li class="nav-item {{ Request::is('dashboard/laporan') ? 'active' : '' }}">

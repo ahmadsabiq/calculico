@@ -6,11 +6,11 @@
     <h1 class="h2">Ganti Password</h1>
   </div>
 
-  @if (session('success') === 'password-updated')
-        <div class="alert alert-success">
-            Password berhasil diubah!
-        </div>
-        @endif
+  @if (session('status') === 'password-updated')
+            <div class="alert alert-success">
+                Password berhasil diubah!
+            </div>
+            @endif
 
         <form method="post" action="{{ route('password.update') }}" class="mt-6">
             @csrf
@@ -37,15 +37,5 @@
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary w-100 py-2 mt-4">{{ __('Simpan') }}</button>
             </div>
-    
-            @if (session('status') === 'password-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-green-500"
-                >{{ __('Tersimpan') }}</p>
-            @endif
         </form>
 @endsection

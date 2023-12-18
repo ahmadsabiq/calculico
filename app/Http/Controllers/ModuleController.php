@@ -15,29 +15,23 @@ class ModuleController extends Controller
 
      public function postData(Request $request)
      {
-         // Ensure the request is from an authenticated user
-        //  $user = auth()->user();
- 
-         // Process the Unity data
-         $data = $request->json()->all();
+        $request->validate([
+            'tittle' => 'required',
+            'level' => 'required',
+            'question' => 'required',
+            'attempt' => 'required',
+        ]);
 
-            $module = module::create([
-                // 'user_id' => $user->id,
-                'name' => $data['name'],
-                'tittle' => $data['tittle'],
-                'level' => $data['level'],
-                'question' => $data['question'],
-                'attempt' => $data['attempt'],
-            ]);
-            
-            $module->save();
- 
-         return response()->json(['message' => 'Data received and processed successfully']);
+        $request['user_id'] = auth()->user()->id;
+        $module = module::create($request->all());
+
+        return new ModuleResource($module);
      }
 
 
      public function index()
      {
+
          $modul = module::paginate(10);
          return view("dashboard.report.index", compact("modul"));
      }

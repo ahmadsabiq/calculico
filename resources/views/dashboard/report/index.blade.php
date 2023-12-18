@@ -37,7 +37,7 @@
         @foreach ($modul as $user)
         <tr>
           <td>{{ $loop->iteration }}</td>
-          <td>{{ $user->name }}</td>
+          <td>{{ $user->user->name }}</td>
           <td>{{ $user->tittle }}</td>
           <td>{{ $user->level }}</td>
           <td>{{ $user->question }}</td>

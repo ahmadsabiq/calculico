@@ -11,7 +11,6 @@ class module extends Model
 
     protected $fillable = [
         'user_id',
-        'name',
         'tittle',
         'level',
         'question',
@@ -20,7 +19,7 @@ class module extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     // public function module()
