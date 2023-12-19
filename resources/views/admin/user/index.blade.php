@@ -40,7 +40,10 @@
             </span>
         </td>
           <td>
-            <a href="/dashboard/user/{{ $user->id }}" class="btn btn-info">Lihat</a>
+            <form action='/resetpassword/{{ $user->id }}' class="d-inline" method="POST">
+              @csrf
+              <button class="btn btn-info border-0" onclick="return confirm('Apakah anda yakin mereset password {{ $user->name }}?')">Reset Password</button>
+              </form>
             <a href="/updateuser/{{ $user->id }}" class="btn btn-warning">Edit</a>
             <form action='/deleteuser/{{ $user->id }}' class="d-inline" method="POST">
             @csrf

@@ -10,17 +10,17 @@ class module extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'name',
         'tittle',
         'level',
         'question',
         'attempt',
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class, 'user_id');
+    // }
 
     // public function module()
     // {

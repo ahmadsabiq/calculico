@@ -13,15 +13,13 @@ return new class extends Migration
     {
         Schema::create('modules', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->string('name');
             $table->string('tittle');
             $table->string('level');
             $table->string('question');
             $table->integer('attempt');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

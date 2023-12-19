@@ -25,7 +25,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 // });
 
 
-Route::post('/post', [ModuleController::class, 'postData'])->middleware('auth:sanctum');
+Route::post('/post', [ModuleController::class, 'postData'])->name('post');
 
 // Route::get('/get-user', [ModuleController::class, 'getUser']);
 // Route::get('/module', [ModuleController::class,'index'])->middleware('auth:sanctum');

@@ -94,6 +94,19 @@ class AdminUserController extends Controller
 
     }
 
+    public function resetpassword(Request $request, $userId)
+    {
+        $reset = 'Calculico123';
+
+        DB::table('users')->where('id', $userId)->update([
+            'password' => Hash::make($reset), 
+        ]);
+
+        return redirect('/dashboard/user')->with('success','Password Berhasil Di Reset');
+
+    }
+    
+
     /**
      * Remove the specified resource from storage.
      */

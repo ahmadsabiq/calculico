@@ -20,6 +20,23 @@
     </div>
 @endcan
 
+<form action="{{ route('dashboard.laporan.search') }}" method="GET" class="mb-3">
+  <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search..." name="keyword">
+      <button class="btn btn-outline-secondary" type="submit">Search</button>
+  </div>
+</form>
+
+
+@if($modul->count() > 0)
+
+@if(request()->has('keyword'))
+    <!-- Button to go back to the dashboard/laporan route -->
+    <a href="/dashboard/laporan" class="btn btn-secondary mb-3 "><i class="bi bi-chevron-left"></i>Kembali ke Halaman Laporan</a>
+
+    <p>Hasil pencarian: <span class="fw-bold">{{ request('keyword') }}</span></p>
+@endif
+
 <div class="table-responsive table-bordered small">
     <table class="table table-striped table-bordered table-sm text-center">
       <thead>
@@ -37,7 +54,7 @@
         @foreach ($modul as $user)
         <tr>
           <td>{{ $loop->iteration }}</td>
-          <td>{{ $user->user->name }}</td>
+          <td>{{ $user->name }}</td>
           <td>{{ $user->tittle }}</td>
           <td>{{ $user->level }}</td>
           <td>{{ $user->question }}</td>
@@ -50,5 +67,9 @@
 
     {{-- Display pagination links --}}
     {{ $modul->links('pagination::bootstrap-4') }}
+
+    @else
+    <p>No results found.</p>
+@endif
 </div>
 @endsection

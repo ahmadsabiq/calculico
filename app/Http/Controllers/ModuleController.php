@@ -16,13 +16,12 @@ class ModuleController extends Controller
      public function postData(Request $request)
      {
         $request->validate([
+            'name' => 'required',
             'tittle' => 'required',
             'level' => 'required',
             'question' => 'required',
             'attempt' => 'required',
         ]);
-
-        $request['user_id'] = auth()->user()->id;
         $module = module::create($request->all());
 
         return new ModuleResource($module);
@@ -32,9 +31,26 @@ class ModuleController extends Controller
      public function index()
      {
 
-         $modul = module::paginate(10);
+         $modul = module::paginate(15);
          return view("dashboard.report.index", compact("modul"));
      }
+
+     public function search(Request $request)
+        {
+            $keyword = $request->input('keyword');
+
+            // Perform the search query
+            $modul = Module::where('name', 'LIKE', "%$keyword%")
+                ->orWhere('tittle', 'LIKE', "%$keyword%")
+                ->orWhere('level', 'LIKE', "%$keyword%")
+                ->orWhere('question', 'LIKE', "%$keyword%")
+                ->orWhere('attempt', 'LIKE', "%$keyword%")
+                ->orWhere('created_at', 'LIKE', "%$keyword%")
+                ->paginate(15); // Adjust the pagination as needed
+
+            // Pass the search results to the view
+            return view('dashboard.report.index', compact('modul'));
+        }
 
      public function lampu()
      {

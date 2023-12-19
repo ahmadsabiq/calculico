@@ -34,14 +34,14 @@ Route::get('dashboard',[DashboardController::class,'index'])->middleware(['auth'
 
 Route::get('home',[HomeController::class,'index'])->middleware(['auth'])->name('home');
 
-
-// Route::get('user',[HomeController::class,'user'])->middleware(['auth','admin'])->name('user');
-
 Route::resource('dashboard/user', AdminUserController::class)->middleware('admin');
 Route::post('/deleteuser/{id}', [AdminUserController::class, 'destroy'])->name('deleteuser')->middleware('admin');
 
 Route::get('/updateuser/{id}', [AdminUserController::class, 'edit']);
 Route::put('/updateuser/{userId}', [AdminUserController::class, 'update'])->name('updateuser')->middleware('admin');
+Route::post('/resetpassword/{userId}', [AdminUserController::class, 'resetpassword'])->name('resetpassword')->middleware('admin');
+
+
 
 Route::get('/pendinguser', [AdminUserController::class, 'pending'])->name('pendinguser')->middleware('admin');
 Route::patch('/approve-pending', [AdminUserController::class, 'updateAllPending'])->name('pendinguser')->middleware('admin');
@@ -56,6 +56,7 @@ Route::get('/lampu',[ModuleController::class,'lampu'] )->name('lampu')->middlewa
 Route::get('/sepatu',[ModuleController::class,'sepatu'] )->name('sepatu')->middleware('auth');
 Route::get('/belanja',[ModuleController::class,'belanja'] )->name('belanja')->middleware('auth');
 
+Route::get('/dashboard/laporan/search', [ModuleController::class, 'search'])->name('dashboard.laporan.search')->middleware('auth');
 
 Route::get('dashboard/laporan',[ModuleController::class,'index'] )->middleware('auth');
 Route::post('deletereport', [ModuleController::class, 'destroy'])->name('deletereport')->middleware('admin');
